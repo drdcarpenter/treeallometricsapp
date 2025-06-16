@@ -9,6 +9,7 @@ RUN apt-get update && apt-get install -y \
 
 # Install R packages
 RUN install2.r --error bsicons bslib shiny UTreeAllometrics
+RUN R -e "remotes::install_git("https://codeberg.org/drdcarpenter/UTreeAllometrics.git")"
 
 # Copy application files
 COPY . /srv/shiny-server/app/
