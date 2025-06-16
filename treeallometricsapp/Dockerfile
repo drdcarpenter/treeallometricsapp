@@ -17,7 +17,7 @@ WORKDIR /app
 RUN R -e "install.packages('remotes'); remotes::install_deps('.')"
 
 # Install R packages
-RUN install2.r --error bsicons bslib shiny UTreeAllometrics
+RUN install2.r --error bsicons bslib shiny
 RUN R -e "remotes::install_git('https://codeberg.org/drdcarpenter/UTreeAllometrics.git')"
 
 # Copy application files
