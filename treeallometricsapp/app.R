@@ -14,7 +14,20 @@ library(bsicons)
 
 # Define UI for application
 ui <- page_sidebar(
-  title = "Urban Tree Allometric Equations",
+  
+  theme = bs_theme(
+    bg = "#fff",
+    fg = "#001",
+    primary = "#00895A"
+  ),
+  tags$head(
+    tags$style(HTML("
+            .navbar-brand {
+            display: flex;
+            }
+            "))),
+  
+  title = div(span(img(src = "logo.png", height = 100)), "Urban Tree Allometric Equations"),
   sidebar = sidebar(
     title = "Apply allometric equations",
     selectInput(
