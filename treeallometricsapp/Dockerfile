@@ -20,6 +20,7 @@ WORKDIR /srv/shiny-server/app
 # Copy over replacement index page
 RUN sudo rm /srv/shiny-server/index.html
 COPY index.html /srv/shiny-server/index.html
+COPY /www /srv/shiny-server/www/
 
 # Set environment variables
 # No environment variables set
