@@ -17,6 +17,10 @@ RUN R -e "remotes::install_git('https://codeberg.org/drdcarpenter/UTreeAllometri
 COPY . /srv/shiny-server/app/
 WORKDIR /srv/shiny-server/app
 
+# Copy over replacement index page
+RUN sudo rm /srv/shiny-server/index.html
+COPY index.html /srv/shiny-server/index.html
+
 # Set environment variables
 # No environment variables set
 
