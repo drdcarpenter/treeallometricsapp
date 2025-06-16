@@ -7,14 +7,6 @@ RUN apt-get update && apt-get install -y \
     libxml2-dev \
     && rm -rf /var/lib/apt/lists/*
 
-# Copy over just the files required to install the dependencies, and then install them. We do this
-# before copying over any other source files so that the layer can be cached and doesn't need to be
-# regenerated every time a source file changes.
-COPY DESCRIPTION /app/
-
-# Install dependencies for app.
-WORKDIR /app
-RUN R -e "install.packages('remotes'); remotes::install_deps('.')"
 
 # Install R packages
 RUN install2.r --error bsicons bslib shiny
